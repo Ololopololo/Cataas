@@ -1,11 +1,13 @@
 import UIKit
+import UserNotifications
 
-class SceneDelegate: UIResponder, UIWindowSceneDelegate {
+class SceneDelegate: UIResponder, UIWindowSceneDelegate, UNUserNotificationCenterDelegate {
     
     var window: UIWindow?
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
+        UNUserNotificationCenter.current().delegate = self
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
         showMainScreen()
@@ -57,5 +59,18 @@ extension SceneDelegate {
         }
         window.rootViewController = vc
         window.makeKeyAndVisible()
+    }
+    
+    internal func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                didReceive response: UNNotificationResponse,
+                                withCompletionHandler completionHandler: @escaping () -> Void) {
+        if let tabBarController = window?.rootViewController as? UITabBarController {
+            tabBarController.selectedIndex = 1
+        let catHistoryViewModel = CatHistoryViewModel()
+            catHistoryViewModel.fetchCatImage { success, error in
+                print("fetched")
+            }
+        }
+        completionHandler()
     }
 }

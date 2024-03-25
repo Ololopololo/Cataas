@@ -58,5 +58,6 @@ class Notifications {
         notificationCenter.removeAllPendingNotificationRequests()
         setNotificationsEnabled(false)
     }
+    
 }
 
