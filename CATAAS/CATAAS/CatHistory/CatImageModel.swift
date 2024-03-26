@@ -1,10 +1,3 @@
-//
-//  CatImageModel.swift
-//  CATAAS
-//
-//  Created by Владислав Положай on 25.03.2024.
-//
-
 import Foundation
 import RealmSwift
 

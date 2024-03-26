@@ -1,9 +1,9 @@
 import Foundation
+import WACore
 
-class TimeSettingViewModel {
+class TimeSettingViewModel: AppParameters {
     
     private let notifications: Notifications
-    private let defaults = UserDefaults.standard
     
     var showAlert: (() -> Void)?
 
@@ -12,17 +12,17 @@ class TimeSettingViewModel {
     }
     
     var timeOne: Date {
-        get { defaults.object(forKey: "timeOne") as? Date ?? Date() }
-        set { defaults.set(newValue, forKey: "timeOne") }
+        get { params.get(AppKeys.timeOne, type: Date.self).value ?? Date() }
+        set { params.set(AppKeys.timeOne, value: newValue) }
     }
     
     var timeTwo: Date {
-        get { defaults.object(forKey: "timeTwo") as? Date ?? Date() }
-        set { defaults.set(newValue, forKey: "timeTwo") }
+        get { params.get(AppKeys.timeTwo, type: Date.self).value ?? Date() }
+        set { params.set(AppKeys.timeTwo, value: newValue) }
     }
     
     func saveTimeSettings() {
-        if defaults.bool(forKey: "notificationsEnabled") {
+        if (params.get(AppKeys.enabledNotifications, type: Bool.self).value ?? false) {
             notifications.dispatchNotification(at: timeOne, withIdentifier: "timeOneNotification") { success in
                 print(success ? "Notification for timeOne Set" : "Notification for timeOne not working")
             }
@@ -32,8 +32,8 @@ class TimeSettingViewModel {
         } else {
             print("ShowAlert")
             DispatchQueue.main.async { [weak self] in
-                self?.defaults.removeObject(forKey: "timeOne")
-                self?.defaults.removeObject(forKey: "timeTwo")
+                self?.params.reset(AppKeys.timeOne)
+                self?.params.reset(AppKeys.timeTwo)
                 self?.showAlert?()
             }
         }
@@ -42,7 +42,7 @@ class TimeSettingViewModel {
     func requestNotificationPermissions(completion: @escaping (Bool) -> Void) {
         notifications.requestPermissions { [weak self] allowed in
             DispatchQueue.main.async {
-                self?.defaults.set(allowed, forKey: "notificationsEnabled")
+                self?.params.set(AppKeys.enabledNotifications, value: allowed)
                 completion(allowed)
             }
         }

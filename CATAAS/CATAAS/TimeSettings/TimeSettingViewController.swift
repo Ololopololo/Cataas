@@ -1,19 +1,21 @@
 import UIKit
 import SnapKit
+import WACore
 
-class TimeSettingViewController: UIViewController {
+class TimeSettingViewController: UIViewController, AppParameters {
     
     private var viewModel: TimeSettingViewModel!
-    
+    private var viewModelCat: CatHistoryViewModel!
     private let timePickerOne = UIDatePicker()
     private let timePickerTwo = UIDatePicker()
     private let labelOne = UILabel()
     private let labelTwo = UILabel()
     private let saveButton = UIButton(type: .system)
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel = TimeSettingViewModel()
+        viewModelCat = CatHistoryViewModel()
         setupUI()
         configureConstraints()
     }
@@ -26,11 +28,11 @@ private extension TimeSettingViewController {
         view.backgroundColor = .white
         configureLabel(labelOne, withText: "Время первого уведомления")
         configureLabel(labelTwo, withText: "Время второго уведомления")
-        configureTimePicker(timePickerOne, forKey: "timeOne")
-        configureTimePicker(timePickerTwo, forKey: "timeTwo")
+        configureTimePicker(timePickerOne, forKey: AppKeys.timeOne)
+        configureTimePicker(timePickerTwo, forKey: AppKeys.timeTwo)
         configureSaveButton()
     }
-    
+        
     func configureLabel(_ label: UILabel, withText text: String) {
         label.text = text
         label.font = .systemFont(ofSize: 18)
@@ -41,14 +43,12 @@ private extension TimeSettingViewController {
         view.addSubview(label)
     }
     
-    func configureTimePicker(_ timePicker: UIDatePicker, forKey userDefaultsKey: String) {
+    func configureTimePicker(_ timePicker: UIDatePicker, forKey: AppParameterKey) {
         timePicker.datePickerMode = .time
         if #available(iOS 14, *) {
             timePicker.preferredDatePickerStyle = .wheels
         }
-        let defaults = UserDefaults.standard
-        
-        let savedTime = defaults.object(forKey: userDefaultsKey) as? Date
+        let savedTime = params.get(forKey, type: Date.self).value
         timePicker.date = savedTime ?? Date()
         
         view.addSubview(timePicker)
@@ -109,23 +109,23 @@ private extension TimeSettingViewController {
             print("ShowControllerAlert")
             DispatchQueue.main.async {  [self] in
                 showAlertWhenDisabled()
-                configureTimePicker(timePickerOne, forKey: "timeOne")
-                configureTimePicker(timePickerTwo, forKey: "timeTwo")            }
+                configureTimePicker(timePickerOne, forKey: AppKeys.timeOne)
+                configureTimePicker(timePickerTwo, forKey: AppKeys.timeTwo)
+            }
         }
-        
-        func showAlertWhenDisabled() {
-            let alert = UIAlertController(
-                title: "Уведомления отключены",
-                message: "Уведомления отключены в настройках. Чтобы получать напоминания, пожалуйста, включите уведомления для этого приложения в настройках вашего устройства.",
-                preferredStyle: .alert
-            )
-            alert.addAction(UIAlertAction(title: "Отмена", style: .cancel, handler: nil))
-            alert.addAction(UIAlertAction(title: "Настройки", style: .default, handler: { _ in
-                if let settingsUrl = URL(string: UIApplication.openSettingsURLString), UIApplication.shared.canOpenURL(settingsUrl) {
-                    UIApplication.shared.open(settingsUrl)
-                }
-            }))
-            self.present(alert, animated: true)
-        }
+    }
+    func showAlertWhenDisabled() {
+        let alert = UIAlertController(
+            title: "Уведомления отключены",
+            message: "Уведомления отключены в настройках. Чтобы получать напоминания, пожалуйста, включите уведомления для этого приложения в настройках вашего устройства.",
+            preferredStyle: .alert
+        )
+        alert.addAction(UIAlertAction(title: "Отмена", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "Настройки", style: .default, handler: { _ in
+            if let settingsUrl = URL(string: UIApplication.openSettingsURLString), UIApplication.shared.canOpenURL(settingsUrl) {
+                UIApplication.shared.open(settingsUrl)
+            }
+        }))
+        self.present(alert, animated: true)
     }
 }
