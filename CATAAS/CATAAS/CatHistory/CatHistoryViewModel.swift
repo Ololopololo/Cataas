@@ -8,8 +8,6 @@ class CatHistoryViewModel {
     var catImages: Results<CatImageModel>?
     private let networkManager = NetworkManager()
     
-    var onDataUpdated: (() -> Void)?
-    
     func loadImagesFromRealm() {
         let realm = try! Realm()
         catImages = realm.objects(CatImageModel.self).sorted(byKeyPath: "timeStamp", ascending: true)

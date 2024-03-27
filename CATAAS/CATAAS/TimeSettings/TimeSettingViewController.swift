@@ -5,7 +5,7 @@ import WACore
 class TimeSettingViewController: UIViewController, AppParameters {
     
     private var viewModel: TimeSettingViewModel!
-    private var viewModelCat: CatHistoryViewModel!
+    private var viewModelCat: CatHistoryViewModel! // для теста, так-то оно тут не должно быть
     private let timePickerOne = UIDatePicker()
     private let timePickerTwo = UIDatePicker()
     private let labelOne = UILabel()
@@ -113,6 +113,7 @@ private extension TimeSettingViewController {
                 configureTimePicker(timePickerTwo, forKey: AppKeys.timeTwo)
             }
         }
+        viewModelCat.fetch() // для теста, так-то оно тут не должно быть
     }
     func showAlertWhenDisabled() {
         let alert = UIAlertController(

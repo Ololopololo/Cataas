@@ -3,39 +3,34 @@ import Foundation
 import WANetwork
 import WACore
 
-class NetworkManager {
-    
-    var networkSettings = NetworkClientSettings(
+class SessionInfo: SessionInfoHolder {
+    var sessionId: Int? = 1
+    var authSession: String? = "guest"
+}
+
+enum NetworkSettings {
+    static let networkSettings = NetworkClientSettings(
         id: "cat",
         baseURL: "https://cataas.com"
     )
+}
 
-    var cacheManager = CacheManager(
-        storage: CacheStorage(default: CacheScope("default"),
-                              with: .none),
+class NetworkManager {
+    
+    let cacheManager = CacheManager(
+        storage: CacheStorage(default: CacheScope("default"), with: nil),
         sessionInfo: SessionInfo()
     )
     
-    class SessionInfo: SessionInfoHolder {
-        var sessionId: Int? = 1
-        var authSession: String? = "guest"
-    }
-
     let catRoute = NetworkRoute(path: "/cat")
-    
     func fetch() {
-        let networkProvider = NetworkClientProvider(cacheManager: cacheManager).client(with: networkSettings)
-        networkProvider.load(route: catRoute, policy: .server, completion: {
+        let networkProvider = NetworkClientProvider(cacheManager: cacheManager)
+        let networkClient = networkProvider.client(with: NetworkSettings.networkSettings)
+        networkClient.load(route: catRoute, policy: .server, completion: {
             response in
-            print("\(response)")
+            print("response.data")
         })
     }
-    
-    
-    
-    
-    var settings: NetworkClientSettingsProtocol!
-    private let urlGenerationError = "Could not generate url request object"
     
     func fetchCatImage(completion: @escaping (Result<Data, Error>) -> Void) {
         AF.request("https://cataas.com/cat", method: .get).responseData { response in
@@ -47,7 +42,6 @@ class NetworkManager {
             }
         }
     }
-
 }
 
 

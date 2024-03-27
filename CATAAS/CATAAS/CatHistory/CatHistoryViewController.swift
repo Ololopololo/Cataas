@@ -9,9 +9,9 @@ class CatHistoryViewController: UICollectionViewController {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         let spacing: CGFloat = 2
-        layout.minimumInteritemSpacing = spacing // items in the same row
-        layout.minimumLineSpacing = spacing // between rows
-        layout.sectionInset = UIEdgeInsets(top: spacing, left: spacing, bottom: spacing, right: spacing) // from the section borders
+        layout.minimumInteritemSpacing = spacing
+        layout.minimumLineSpacing = spacing
+        layout.sectionInset = UIEdgeInsets(top: spacing, left: spacing, bottom: spacing, right: spacing)
         
         let itemsPerRow: CGFloat = 3
         let paddingSpace = spacing * (itemsPerRow + 1)

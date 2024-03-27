@@ -13,7 +13,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, UNUserNotificationCente
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
         showMainScreen()
-        WACore.register()
+//        WACore.register()
     }
     
     func sceneDidDisconnect(_ scene: UIScene) {
