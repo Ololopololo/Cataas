@@ -12,18 +12,21 @@
 		5E01894E2BAC795300C050FB /* TimeSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E01894D2BAC795300C050FB /* TimeSettingViewController.swift */; };
 		5E0189532BAC795400C050FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E0189522BAC795400C050FB /* Assets.xcassets */; };
 		5E0189562BAC795400C050FB /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 5E0189552BAC795400C050FB /* Base */; };
-		5E18B6F22BAD67BB0064B805 /* WANetwork in Frameworks */ = {isa = PBXBuildFile; productRef = 5E18B6F12BAD67BB0064B805 /* WANetwork */; };
-		5E18B6F52BAD6C9C0064B805 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5E18B6F42BAD6C9C0064B805 /* SnapKit */; };
+		5E0CDD712BB41D5D0066058C /* NetworkManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0CDD702BB41D5C0066058C /* NetworkManagerTest.swift */; };
 		5E18B6F72BAD6D190064B805 /* UIAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E18B6F62BAD6D190064B805 /* UIAppearance.swift */; };
 		5E18B6FD2BAD7A830064B805 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E18B6FC2BAD7A830064B805 /* MainTabBarController.swift */; };
 		5E18B6FF2BAD83170064B805 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E18B6FE2BAD83170064B805 /* Notifications.swift */; };
 		5E18B7012BADB7420064B805 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E18B7002BADB7420064B805 /* NetworkManager.swift */; };
+		5E25DC532BB360160078AF00 /* WANetwork in Frameworks */ = {isa = PBXBuildFile; productRef = 5E25DC522BB360160078AF00 /* WANetwork */; };
+		5E25DC562BB360E20078AF00 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5E25DC552BB360E20078AF00 /* SnapKit */; };
+		5E25DC592BB362310078AF00 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 5E25DC582BB362310078AF00 /* Realm */; };
+		5E25DC5B2BB362310078AF00 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5E25DC5A2BB362310078AF00 /* RealmSwift */; };
+		5E2FF2C72BB31B090099B7E3 /* AppKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2FF2C62BB31B090099B7E3 /* AppKeys.swift */; };
 		5E6512542BB1801400D1DE18 /* CatHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6512532BB1801400D1DE18 /* CatHistoryViewController.swift */; };
 		5E6512562BB1802900D1DE18 /* CatImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6512552BB1802900D1DE18 /* CatImageModel.swift */; };
 		5E6512582BB1803B00D1DE18 /* CatHistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6512572BB1803B00D1DE18 /* CatHistoryViewModel.swift */; };
-		5E65125B2BB1837800D1DE18 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 5E65125A2BB1837800D1DE18 /* Realm */; };
-		5E65125D2BB1837800D1DE18 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5E65125C2BB1837800D1DE18 /* RealmSwift */; };
 		5E65125F2BB1A4A100D1DE18 /* CatImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E65125E2BB1A4A100D1DE18 /* CatImageCell.swift */; };
+		5EBB8F142BB2D62800B4C1D2 /* CatRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBB8F132BB2D62800B4C1D2 /* CatRoute.swift */; };
 		5ED3091C2BB1560A00F243C4 /* TimeSettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED3091B2BB1560A00F243C4 /* TimeSettingViewModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -35,14 +38,17 @@
 		5E0189522BAC795400C050FB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5E0189552BAC795400C050FB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5E0189572BAC795400C050FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5E0CDD702BB41D5C0066058C /* NetworkManagerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerTest.swift; sourceTree = "<group>"; };
 		5E18B6F62BAD6D190064B805 /* UIAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAppearance.swift; sourceTree = "<group>"; };
 		5E18B6FC2BAD7A830064B805 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		5E18B6FE2BAD83170064B805 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		5E18B7002BADB7420064B805 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		5E2FF2C62BB31B090099B7E3 /* AppKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppKeys.swift; sourceTree = "<group>"; };
 		5E6512532BB1801400D1DE18 /* CatHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatHistoryViewController.swift; sourceTree = "<group>"; };
 		5E6512552BB1802900D1DE18 /* CatImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatImageModel.swift; sourceTree = "<group>"; };
 		5E6512572BB1803B00D1DE18 /* CatHistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatHistoryViewModel.swift; sourceTree = "<group>"; };
 		5E65125E2BB1A4A100D1DE18 /* CatImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatImageCell.swift; sourceTree = "<group>"; };
+		5EBB8F132BB2D62800B4C1D2 /* CatRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatRoute.swift; sourceTree = "<group>"; };
 		5ED3091B2BB1560A00F243C4 /* TimeSettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSettingViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -51,10 +57,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5E65125D2BB1837800D1DE18 /* RealmSwift in Frameworks */,
-				5E65125B2BB1837800D1DE18 /* Realm in Frameworks */,
-				5E18B6F22BAD67BB0064B805 /* WANetwork in Frameworks */,
-				5E18B6F52BAD6C9C0064B805 /* SnapKit in Frameworks */,
+				5E25DC5B2BB362310078AF00 /* RealmSwift in Frameworks */,
+				5E25DC592BB362310078AF00 /* Realm in Frameworks */,
+				5E25DC532BB360160078AF00 /* WANetwork in Frameworks */,
+				5E25DC562BB360E20078AF00 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,6 +105,9 @@
 				5E18B6F62BAD6D190064B805 /* UIAppearance.swift */,
 				5E18B6FE2BAD83170064B805 /* Notifications.swift */,
 				5E18B7002BADB7420064B805 /* NetworkManager.swift */,
+				5E0CDD702BB41D5C0066058C /* NetworkManagerTest.swift */,
+				5EBB8F132BB2D62800B4C1D2 /* CatRoute.swift */,
+				5E2FF2C62BB31B090099B7E3 /* AppKeys.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -140,10 +149,10 @@
 			);
 			name = CATAAS;
 			packageProductDependencies = (
-				5E18B6F12BAD67BB0064B805 /* WANetwork */,
-				5E18B6F42BAD6C9C0064B805 /* SnapKit */,
-				5E65125A2BB1837800D1DE18 /* Realm */,
-				5E65125C2BB1837800D1DE18 /* RealmSwift */,
+				5E25DC522BB360160078AF00 /* WANetwork */,
+				5E25DC552BB360E20078AF00 /* SnapKit */,
+				5E25DC582BB362310078AF00 /* Realm */,
+				5E25DC5A2BB362310078AF00 /* RealmSwift */,
 			);
 			productName = CATAAS;
 			productReference = 5E0189462BAC795300C050FB /* CATAAS.app */;
@@ -174,9 +183,9 @@
 			);
 			mainGroup = 5E01893D2BAC795300C050FB;
 			packageReferences = (
-				5E18B6F02BAD67BB0064B805 /* XCRemoteSwiftPackageReference "wanetwork" */,
-				5E18B6F32BAD6C9C0064B805 /* XCRemoteSwiftPackageReference "SnapKit" */,
-				5E6512592BB1837800D1DE18 /* XCRemoteSwiftPackageReference "realm-swift" */,
+				5E25DC512BB360160078AF00 /* XCRemoteSwiftPackageReference "wanetwork" */,
+				5E25DC542BB360E20078AF00 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				5E25DC572BB362310078AF00 /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = 5E0189472BAC795300C050FB /* Products */;
 			projectDirPath = "";
@@ -205,10 +214,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				5E6512562BB1802900D1DE18 /* CatImageModel.swift in Sources */,
+				5E2FF2C72BB31B090099B7E3 /* AppKeys.swift in Sources */,
 				5E18B6FF2BAD83170064B805 /* Notifications.swift in Sources */,
+				5E0CDD712BB41D5D0066058C /* NetworkManagerTest.swift in Sources */,
 				5E01894E2BAC795300C050FB /* TimeSettingViewController.swift in Sources */,
 				5E6512542BB1801400D1DE18 /* CatHistoryViewController.swift in Sources */,
 				5E65125F2BB1A4A100D1DE18 /* CatImageCell.swift in Sources */,
+				5EBB8F142BB2D62800B4C1D2 /* CatRoute.swift in Sources */,
 				5E01894A2BAC795300C050FB /* AppDelegate.swift in Sources */,
 				5E18B7012BADB7420064B805 /* NetworkManager.swift in Sources */,
 				5E18B6FD2BAD7A830064B805 /* MainTabBarController.swift in Sources */,
@@ -434,7 +446,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		5E18B6F02BAD67BB0064B805 /* XCRemoteSwiftPackageReference "wanetwork" */ = {
+		5E25DC512BB360160078AF00 /* XCRemoteSwiftPackageReference "wanetwork" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "git@bitbucket.org:waveaccessllc/wanetwork.git";
 			requirement = {
@@ -442,7 +454,7 @@
 				kind = branch;
 			};
 		};
-		5E18B6F32BAD6C9C0064B805 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+		5E25DC542BB360E20078AF00 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "git@gitlab.com:swiftPackageDependencies/SnapKit.git";
 			requirement = {
@@ -450,7 +462,7 @@
 				minimumVersion = 5.0.1;
 			};
 		};
-		5E6512592BB1837800D1DE18 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+		5E25DC572BB362310078AF00 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "git@github.com:realm/realm-swift.git";
 			requirement = {
@@ -461,24 +473,24 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		5E18B6F12BAD67BB0064B805 /* WANetwork */ = {
+		5E25DC522BB360160078AF00 /* WANetwork */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 5E18B6F02BAD67BB0064B805 /* XCRemoteSwiftPackageReference "wanetwork" */;
+			package = 5E25DC512BB360160078AF00 /* XCRemoteSwiftPackageReference "wanetwork" */;
 			productName = WANetwork;
 		};
-		5E18B6F42BAD6C9C0064B805 /* SnapKit */ = {
+		5E25DC552BB360E20078AF00 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 5E18B6F32BAD6C9C0064B805 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			package = 5E25DC542BB360E20078AF00 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
 		};
-		5E65125A2BB1837800D1DE18 /* Realm */ = {
+		5E25DC582BB362310078AF00 /* Realm */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 5E6512592BB1837800D1DE18 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			package = 5E25DC572BB362310078AF00 /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = Realm;
 		};
-		5E65125C2BB1837800D1DE18 /* RealmSwift */ = {
+		5E25DC5A2BB362310078AF00 /* RealmSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 5E6512592BB1837800D1DE18 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			package = 5E25DC572BB362310078AF00 /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
 		};
 /* End XCSwiftPackageProductDependency section */

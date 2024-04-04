@@ -1,15 +1,16 @@
 import Foundation
 import UserNotifications
+import WACore
 
-class Notifications {
-    
+class Notifications: AppParameters {
+    let notificationCenter = UNUserNotificationCenter.current()
+
     func requestPermissions(completion: @escaping (Bool) -> Void) {
-        let notificationCenter = UNUserNotificationCenter.current()
         
         notificationCenter.getNotificationSettings { settings in
             switch settings.authorizationStatus {
             case .notDetermined:
-                notificationCenter.requestAuthorization(options: [.alert, .sound]) { allowed, _ in
+                self.notificationCenter.requestAuthorization(options: [.alert, .sound]) { allowed, _ in
                     if allowed {
                         self.setNotificationsEnabled(true)
                     }
@@ -27,11 +28,11 @@ class Notifications {
     }
     
     private func setNotificationsEnabled(_ enabled: Bool) {
+        params.set(AppKeys.enabledNotifications, value: enabled)
         UserDefaults.standard.set(enabled, forKey: "notificationsEnabled")
     }
     
     func dispatchNotification(at date: Date, withIdentifier identifier: String, completion: ((Bool) -> Void)? = nil) {
-        let notificationCenter = UNUserNotificationCenter.current()
         
         let content = UNMutableNotificationContent()
         content.title = NSString.localizedUserNotificationString(forKey: "Время котика!", arguments: nil)
@@ -60,4 +61,3 @@ class Notifications {
     }
     
 }
-

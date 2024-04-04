@@ -1,5 +1,5 @@
 {
-  "originHash" : "918b9dfbd6033bb1d2840bcf975578459953af43cfa9e6fde921835148bb34a8",
+  "originHash" : "f003aba1c8b8eb4ff7ff9e2fc4fc0a178b401b72e235d5b9d32f6cf5d571358c",
   "pins" : [
     {
       "identity" : "alamofire",
@@ -34,7 +34,7 @@
       "location" : "git@github.com:realm/realm-swift.git",
       "state" : {
         "branch" : "master",
-        "revision" : "4de5a714ab44bf158afc3f5b7a4436f8bb8e7ddd"
+        "revision" : "d1906cd285486e60d7d9e5bbde57c6ab9822da8e"
       }
     },
     {
@@ -120,8 +120,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/jpsim/Yams.git",
       "state" : {
-        "revision" : "0d9ee7ea8c4ebd4a489ad7a73d5c6cad55d6fed3",
-        "version" : "5.0.6"
+        "revision" : "8a835d918245ca22f36663dd3862138805d7f707",
+        "version" : "5.1.0"
       }
     }
   ],

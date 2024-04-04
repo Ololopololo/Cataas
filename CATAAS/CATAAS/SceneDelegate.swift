@@ -1,5 +1,7 @@
 import UIKit
 import UserNotifications
+import WACore
+
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate, UNUserNotificationCenterDelegate {
     
@@ -11,6 +13,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, UNUserNotificationCente
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
         showMainScreen()
+//        WACore.register()
     }
     
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -31,17 +34,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, UNUserNotificationCente
         setRootViewController(MainTabBarController())
         
         let notifications = Notifications()
-        let defaults = UserDefaults.standard
         
-        print("Asked \(defaults.bool(forKey: "notificationsAsked"))")
-        print("Enabled \(defaults.bool(forKey: "notificationsEnabled"))")
+        print("Asked \(params.get(AppKeys.enabledNotifications, type: Bool.self).value ?? false)")
+        print("Enabled \(params.get(AppKeys.enabledNotifications, type: Bool.self).value ?? false)")
         
-        if !defaults.bool(forKey: "notificationsAsked") {
-            notifications.requestPermissions { allowed in
+        if !(params.get(AppKeys.enabledNotifications, type: Bool.self).value ?? false)
+        {
+            notifications.requestPermissions { [self] allowed in
                 if allowed {
-                    defaults.set(true, forKey: "notificationsAsked")
-                    print("Asked \(defaults.bool(forKey: "notificationsAsked"))")
-                    print("Enabled \(defaults.bool(forKey: "notificationsEnabled"))")
+                    self.params.set(AppKeys.askedNotifications, value: true)
+                    print("Asked \(params.get(AppKeys.askedNotifications, type: Bool.self).value ?? false)")
+                    print("Enabled \(params.get(AppKeys.enabledNotifications, type: Bool.self).value ?? false)")
                 }
             }
         }
@@ -50,7 +53,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, UNUserNotificationCente
     
 }
 
-extension SceneDelegate {
+extension SceneDelegate: AppParameters {
     private func setRootViewController(_ vc: UIViewController) {
         guard let window = self.window else {
             self.window?.rootViewController = vc
@@ -59,18 +62,21 @@ extension SceneDelegate {
         }
         window.rootViewController = vc
         window.makeKeyAndVisible()
+        UIView.transition(with: window,
+                          duration: 0.3,
+                          options: .transitionCrossDissolve,
+                          animations: nil,
+                          completion: nil)
+
     }
     
-    internal func userNotificationCenter(_ center: UNUserNotificationCenter,
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
                                 didReceive response: UNNotificationResponse,
                                 withCompletionHandler completionHandler: @escaping () -> Void) {
-        if let tabBarController = window?.rootViewController as? UITabBarController {
-            tabBarController.selectedIndex = 1
         let catHistoryViewModel = CatHistoryViewModel()
             catHistoryViewModel.fetchCatImage { success, error in
                 print("fetched")
             }
-        }
         completionHandler()
     }
 }
