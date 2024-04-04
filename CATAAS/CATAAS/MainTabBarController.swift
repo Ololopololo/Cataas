@@ -13,6 +13,6 @@ class MainTabBarController: UITabBarController {
         
         let catsHistoryVC = CatHistoryViewController()
         catsHistoryVC.tabBarItem = UITabBarItem(title: "История", image: UIImage(systemName: "clock"), selectedImage: UIImage(systemName: "clock.fill"))
-        viewControllers = [timeSettingVC, catsHistoryVC]
+        viewControllers = [catsHistoryVC, timeSettingVC]
     }
 }

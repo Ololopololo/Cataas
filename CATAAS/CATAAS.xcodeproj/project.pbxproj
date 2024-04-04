@@ -26,6 +26,7 @@
 		5E6512562BB1802900D1DE18 /* CatImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6512552BB1802900D1DE18 /* CatImageModel.swift */; };
 		5E6512582BB1803B00D1DE18 /* CatHistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6512572BB1803B00D1DE18 /* CatHistoryViewModel.swift */; };
 		5E65125F2BB1A4A100D1DE18 /* CatImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E65125E2BB1A4A100D1DE18 /* CatImageCell.swift */; };
+		5E7C57E62BBED2AD00B3467A /* FullScreenImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7C57E52BBED2AD00B3467A /* FullScreenImageViewController.swift */; };
 		5EBB8F142BB2D62800B4C1D2 /* CatRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBB8F132BB2D62800B4C1D2 /* CatRoute.swift */; };
 		5ED3091C2BB1560A00F243C4 /* TimeSettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED3091B2BB1560A00F243C4 /* TimeSettingViewModel.swift */; };
 /* End PBXBuildFile section */
@@ -48,6 +49,7 @@
 		5E6512552BB1802900D1DE18 /* CatImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatImageModel.swift; sourceTree = "<group>"; };
 		5E6512572BB1803B00D1DE18 /* CatHistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatHistoryViewModel.swift; sourceTree = "<group>"; };
 		5E65125E2BB1A4A100D1DE18 /* CatImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatImageCell.swift; sourceTree = "<group>"; };
+		5E7C57E52BBED2AD00B3467A /* FullScreenImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenImageViewController.swift; sourceTree = "<group>"; };
 		5EBB8F132BB2D62800B4C1D2 /* CatRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatRoute.swift; sourceTree = "<group>"; };
 		5ED3091B2BB1560A00F243C4 /* TimeSettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSettingViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -115,12 +117,21 @@
 		5E6512522BB17FFC00D1DE18 /* CatHistory */ = {
 			isa = PBXGroup;
 			children = (
+				5E7C57E42BBED29B00B3467A /* FullScreenImage */,
 				5E6512532BB1801400D1DE18 /* CatHistoryViewController.swift */,
 				5E6512552BB1802900D1DE18 /* CatImageModel.swift */,
 				5E6512572BB1803B00D1DE18 /* CatHistoryViewModel.swift */,
 				5E65125E2BB1A4A100D1DE18 /* CatImageCell.swift */,
 			);
 			path = CatHistory;
+			sourceTree = "<group>";
+		};
+		5E7C57E42BBED29B00B3467A /* FullScreenImage */ = {
+			isa = PBXGroup;
+			children = (
+				5E7C57E52BBED2AD00B3467A /* FullScreenImageViewController.swift */,
+			);
+			path = FullScreenImage;
 			sourceTree = "<group>";
 		};
 		5ED3091A2BB155AF00F243C4 /* TimeSettings */ = {
@@ -218,6 +229,7 @@
 				5E18B6FF2BAD83170064B805 /* Notifications.swift in Sources */,
 				5E0CDD712BB41D5D0066058C /* NetworkManagerTest.swift in Sources */,
 				5E01894E2BAC795300C050FB /* TimeSettingViewController.swift in Sources */,
+				5E7C57E62BBED2AD00B3467A /* FullScreenImageViewController.swift in Sources */,
 				5E6512542BB1801400D1DE18 /* CatHistoryViewController.swift in Sources */,
 				5E65125F2BB1A4A100D1DE18 /* CatImageCell.swift in Sources */,
 				5EBB8F142BB2D62800B4C1D2 /* CatRoute.swift in Sources */,

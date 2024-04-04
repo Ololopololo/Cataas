@@ -11,7 +11,7 @@ class TimeSettingViewController: UIViewController, AppParameters {
     private let labelOne = UILabel()
     private let labelTwo = UILabel()
     private let saveButton = UIButton(type: .system)
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel = TimeSettingViewModel()
@@ -32,7 +32,7 @@ private extension TimeSettingViewController {
         configureTimePicker(timePickerTwo, forKey: AppKeys.timeTwo)
         configureSaveButton()
     }
-        
+    
     func configureLabel(_ label: UILabel, withText text: String) {
         label.text = text
         label.font = .systemFont(ofSize: 18)
@@ -113,7 +113,13 @@ private extension TimeSettingViewController {
                 configureTimePicker(timePickerTwo, forKey: AppKeys.timeTwo)
             }
         }
-        viewModelCat.fetch() // для теста, так-то оно тут не должно быть
+//        viewModelCat.fetchCatImageWANetwork {success, error in
+//            print("fetched")
+//        }
+        // для теста, так-то оно тут не должно быть
+        //                viewModelCat.fetchCatImageAlamoFire { success, error in
+        //                    print("fetched")
+        //                }
     }
     func showAlertWhenDisabled() {
         let alert = UIAlertController(

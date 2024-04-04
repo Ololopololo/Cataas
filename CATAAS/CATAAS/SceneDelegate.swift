@@ -13,7 +13,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, UNUserNotificationCente
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
         showMainScreen()
-//        WACore.register()
     }
     
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -31,10 +30,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, UNUserNotificationCente
     func sceneDidEnterBackground(_ scene: UIScene) {
     }
     func showMainScreen() {
-        setRootViewController(MainTabBarController())
-        
         let notifications = Notifications()
-        
+
+        setRootViewController(UINavigationController(rootViewController: MainTabBarController()))
+
         print("Asked \(params.get(AppKeys.enabledNotifications, type: Bool.self).value ?? false)")
         print("Enabled \(params.get(AppKeys.enabledNotifications, type: Bool.self).value ?? false)")
         
@@ -62,21 +61,19 @@ extension SceneDelegate: AppParameters {
         }
         window.rootViewController = vc
         window.makeKeyAndVisible()
-        UIView.transition(with: window,
-                          duration: 0.3,
-                          options: .transitionCrossDissolve,
-                          animations: nil,
-                          completion: nil)
-
     }
     
     func userNotificationCenter(_ center: UNUserNotificationCenter,
                                 didReceive response: UNNotificationResponse,
                                 withCompletionHandler completionHandler: @escaping () -> Void) {
         let catHistoryViewModel = CatHistoryViewModel()
-            catHistoryViewModel.fetchCatImage { success, error in
-                print("fetched")
+            catHistoryViewModel.fetchCatImageAlamoFire { success, error in
+                if success {
+                    NotificationCenter.default.post(name: .catHistoryShouldRefresh, object: nil)
+                }
             }
+        
+        self.params.set(AppKeys.shouldShowCat, value: true)
         completionHandler()
     }
 }

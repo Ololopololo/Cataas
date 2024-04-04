@@ -8,6 +8,7 @@ enum AppKeys: String, AppParameterKey {
     case askedNotifications
     case timeOne
     case timeTwo
+    case shouldShowCat
     
 }
 

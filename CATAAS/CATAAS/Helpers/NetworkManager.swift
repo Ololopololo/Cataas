@@ -23,16 +23,29 @@ class NetworkManager {
     )
     
     let catRoute = NetworkRoute(path: "/cat")
-    func fetch() {
+//    func fetch() {
+//        let networkProvider = NetworkClientProvider(cacheManager: cacheManager)
+//        let networkClient = networkProvider.client(with: NetworkSettings.networkSettings)
+//        networkClient.load(route: catRoute, policy: .server, completion: { response in
+//            print(response.data ?? "Nil")
+//        })
+//    }
+    
+    func fetchCatImageWANetwork(completion: @escaping (Result<Data, Error>) -> Void) {
         let networkProvider = NetworkClientProvider(cacheManager: cacheManager)
         let networkClient = networkProvider.client(with: NetworkSettings.networkSettings)
-        networkClient.load(route: catRoute, policy: .server, completion: {
-            response in
-            print("response.data")
+        networkClient.load(route: catRoute, policy: .server, completion: { response in
+            if let data = response.data {
+                completion(.success(data))
+            } else if let error = response.error {
+                completion(.failure(error))
+            } else {
+                completion(.failure(NSError(domain: "UnknownError", code: -1, userInfo: nil)))
+            }
         })
     }
-    
-    func fetchCatImage(completion: @escaping (Result<Data, Error>) -> Void) {
+
+    func fetchCatImageAlamoFire(completion: @escaping (Result<Data, Error>) -> Void) {
         AF.request("https://cataas.com/cat", method: .get).responseData { response in
             switch response.result {
             case .success(let data):
